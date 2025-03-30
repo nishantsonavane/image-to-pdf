@@ -43,7 +43,7 @@ Also supports combining existing **PDF documents**. Fast, secure, and 100% free.
 ## 🌐 Live Demo
 
 **Try it instantly:**  
-👉 [yourdomain.com](https://yourdomain.com)
+👉 [https://nishantsonavane.github.io/image-to-pdf/](https://nishantsonavane.github.io/image-to-pdf/)
 
 ---
 
@@ -55,13 +55,6 @@ Also supports combining existing **PDF documents**. Fast, secure, and 100% free.
 - No build tools or dependencies required
 
 ---
-
-## 📦 Installation (for development)
-
-```bash
-git clone https://github.com/yourusername/image-to-pdf.git
-cd image-to-pdf
-open index.html
 
 📜 License
 MIT License.
