@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDFs & Convert Images (JPG, JPEG, PNG, SVG, WebP, AVIF) to PDF – Free Online Tool</title>
+    <meta name="description" content="Easily merge PDFs and convert images (JPG, JPEG, PNG, SVG, WebP, AVIF) to a single PDF. Add more files anytime. Auto page sizing supported. 100% free & secure.">
+    <meta name="keywords" content="merge PDF, convert image to PDF, JPG to PDF, JPEG tp PDF, PNG to PDF, SVG to PDF, WebP to PDF, AVIF to PDF, free PDF tool, online PDF creator, combine images to PDF, PDF image converter, merge documents online">
+    <meta property="og:title" content="Merge PDFs & Convert Images to PDF – Free & Secure Tool">
+    <meta property="og:description" content="Merge multiple PDFs and images (JPG, JPEG, PNG, SVG, WebP) into a single PDF. Add files incrementally and use auto page sizing. Fast, secure, and browser-based.">
+    <meta property="og:image" content="https://nishantsonavane.github.io/image-to-pdf/image-to-pdf.png">
+    <meta property="og:url" content="https://nishantsonavane.github.io/image-to-pdf/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Merge PDFs & Convert Images to PDF – Free & Secure Tool">
+    <meta name="twitter:description" content="Merge PDFs and images including JPG, JPEG, PNG, SVG, WebP to PDF. Add more files anytime. No sign-up. No uploads.">
+    <link rel="icon" type="image/png" href="image-to-pdf.png" sizes="32x32">
+    <link rel="canonical" href="https://nishantsonavane.github.io/image-to-pdf/">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Merge PDFs & Convert Images (JPG, JPEG, PNG, SVG, WebP, AVIF) to PDF – Free Online Tool",
+        "url": "https://nishantsonavane.github.io/image-to-pdf/",
+        "image": "https://nishantsonavane.github.io/image-to-pdf/thumbnail.jpg",
+        "description": "Merge PDFs and convert images (JPG, JPEG, PNG, SVG, WebP, AVIF) to a single PDF. Add files incrementally and use auto page sizing. 100% free & secure, runs entirely in-browser.",
+        "operatingSystem": "All",
+        "applicationCategory": "Utility"
+        }
+    </script>
+    <link href="style.css" rel="stylesheet" />
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116412779-1');
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="https://nishantsonavane.com/?utm_source=github&amp;utm_medium=logo&amp;utm_campaign=merge-pdfs" target="_blank">
+            <img src="https://nishantsonavane.com/wp-content/uploads/2022/08/ns-logo-dark.png" alt="Nishant Sonavane">
+            <p>Nishant Sonavane</p>
+        </a>
+    </div>
+    <div class="wrapper">
+        <h1>📄 Merge PDFs & Convert Images to PDF – 100% Free & Secure</h1>
+        <p> This tool allows you to <strong>merge PDF files</strong> and <strong>convert images</strong> like <strong>JPG, JPEG, PNG, SVG, WebP, and AVIF</strong> into a single PDF. It works 100% in your browser – no sign-up, no tracking, completely free and unlimited usage.</p>
+        <div class="form-group">
+            <label for="fileInput" class="drop-zone" id="dropZone">
+                <div class="upload-icon">⬆️</div>
+                <button type="button" id="addMoreFiles">Add More Files</button>
+                <span class="drop-text">Drag & Drop files here or <strong>click to upload</strong></span>
+                <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png">
+            </label>
+            <div id="fileName">No files selected</div>
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="page-orntn-custom-width-div">
+            <div class="form-group">
+                <p>Page Orientation:</p>
+                <select id="pageOrientation">
+                    <option value="portrait">Portrait</option>
+                    <option value="landscape">Landscape</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Page Size:</p>
+                <select id="pageSize">
+                    <option value="A4">A4 (595x842)</option>
+                    <option value="Letter">Letter (612x792)</option>
+                    <option value="Legal">Legal (612x1008)</option>
+                    <option value="auto">Auto (Same as Document)</option>
+                    <option value="custom">Custom (Enter below)</option>
+                </select>
+                <div class="custom-width-div">
+                    <input type="number" id="customWidth" placeholder="Custom Width (px)" style="display: none;">
+                    <input type="number" id="customHeight" placeholder="Custom Height (px)" style="display: none;">
+                </div>
+            </div>
+        </div>
+        <button id="mergeButton" onclick="mergeDocuments()">Merge Documents</button>
+        <a id="downloadLink" class="download-btn" style="display: none;"><span class="icon">⬇️</span> Download Merged PDF</a>
+        <hr />
+        <div class="box">
+            <h3>✨ Key Features</h3>
+            <ul>
+                <li><strong>Merge PDFs</strong> – Combine multiple PDF documents into one.</li>
+                <li><strong>Image to PDF</strong> – Convert JPG, JPEG, PNG, SVG, WebP, and AVIF images to PDF.</li>
+                <li><strong>Auto Page Size</strong> – Each image fits perfectly in its own PDF page without cropping or resizing.</li>
+                <li><strong>Add More Files</strong> – No need to reselect. Upload more files anytime before merging.</li>
+                <li><strong>Lightweight</strong> – Entirely browser-based. No file uploads or server processing.</li>
+                <li><strong>Fast & Free</strong> – Unlimited usage without registration.</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>🛠️ How to Use</h3>
+            <ol>
+                <li>Select one or more PDF or image files.</li>
+                <li>Choose a page size like A4, Legal, or use <strong>Auto</strong> to let it match the image size.</li>
+                <li>Click <strong>Merge Documents</strong> to generate your final PDF.</li>
+                <li>Need to add more files? Use the <strong>Add More Files</strong> button to append them.</li>
+                <li>Click <strong>Download Merged PDF</strong> to save the result.</li>
+            </ol>
+        </div>
+        <div class="box">
+            <h3>💡 Why Use This PDF Tool?</h3>
+            <p> Unlike other PDF tools, this one <strong>works entirely in your browser</strong>, ensuring <strong>your files stay private</strong>. There’s no need for installations or uploads. It’s <strong>fast, secure, and 100% free</strong>! </p>
+        </div>
+        <div class="box">
+            <h3>🌎 Frequently Asked Questions</h3>
+            <h4>🧐 Is this tool free?</h4>
+            <p>Yes, 100%! No sign-up, no limits, no hidden costs, completely free.</p>
+            <hr />
+            <h4>📂 What file types are supported?</h4>
+            <p>You can merge PDFs and <strong>convert JPG, JPEG, PNG, SVG, WebP, and AVIF images into a single PDF</strong>.</p>
+            <hr />
+            <h4>🪄 Can I convert SVG or WebP images?</h4>
+            <p>Yes! SVG, WebP, AVIF, JPG, JPEG and PNG are all supported.</p>
+            <hr />
+            <h4>🔐 Is my data secure?</h4>
+            <p>Absolutely. All PDF merging happens in your browser. No files are uploaded to servers.</p>
+            <hr />
+            <h4>📏 Can I change the page size?</h4>
+            <p>Yes! You can select <strong>A4, Letter, Legal, Auto or a custom page size</strong> for merging PDFs.</p>
+            <hr />
+            <h4>💭 What does Auto page size do?</h4>
+            <p>It uses the image's original dimensions so your images don’t get stretched or resized.</p>
+            <hr />
+            <h4>♾️ Can I upload files multiple times?</h4>
+            <p>Yes! Use the <strong>Add More Files</strong> button to append files without starting over.</p>
+        </div>
+    </div>
+    <footer>
+        <p>Code by <a href="https://nishantsonavane.com/?utm_source=github&utm_medium=footer&utm_campaign=scrollspy" target="_blank">Nishant Sonavane</a></p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
