@@ -14,13 +14,30 @@ const fileName = document.getElementById('fileName');
 const dropZone = document.getElementById('dropZone');
 const progressBar = document.getElementById('progressBar');
 
+// Allowed formats
+const allowedTypes = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/svg+xml",
+  "image/webp",
+  "image/avif",
+  "application/pdf"
+];
+
 // Initially hide add more button
 addMoreButton.style.display = "none";
 progressBar.style.display = "none";
 
-fileInput.addEventListener('change', () =>
-{
-    allFiles = [...allFiles, ...Array.from(fileInput.files)];
+fileInput.addEventListener('change', () => {
+    const validFiles = Array.from(fileInput.files).filter(file => allowedTypes.includes(file.type));
+    const invalidFiles = Array.from(fileInput.files).filter(file => !allowedTypes.includes(file.type));
+
+    if (invalidFiles.length > 0) {
+        alert("Some files are not supported (e.g., audio/video or unknown formats). Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    }
+
+    allFiles = [...allFiles, ...validFiles];
     updateFileNames();
     simulateProgress();
 });
@@ -41,11 +58,18 @@ dropZone.addEventListener('dragleave', () =>
     dropZone.classList.remove('dragging');
 });
 
-dropZone.addEventListener('drop', (e) =>
-{
+dropZone.addEventListener('drop', (e) => {
     e.preventDefault();
     dropZone.classList.remove('dragging');
-    allFiles = [...allFiles, ...Array.from(e.dataTransfer.files)];
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    const validFiles = droppedFiles.filter(file => allowedTypes.includes(file.type));
+    const invalidFiles = droppedFiles.filter(file => !allowedTypes.includes(file.type));
+
+    if (invalidFiles.length > 0) {
+        alert("Some files are not supported (e.g., audio/video or unknown formats). Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    }
+
+    allFiles = [...allFiles, ...validFiles];
     updateFileNames();
     simulateProgress();
 });
