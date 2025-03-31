@@ -6,6 +6,8 @@ Convert JPG, PNG, SVG, WebP, AVIF, and PDFs into a single merged PDF – fast, s
 A lightweight, in-browser tool to **convert and merge** multiple image formats (JPG, JPEG, PNG, SVG, WebP, AVIF) into a single PDF file.  
 Also supports combining existing **PDF documents**. Fast, secure, and 100% free. No server uploads — all processing happens locally in your browser.
 
+Live: https://nishantsonavane.github.io/image-to-pdf/
+
 ---
 
 ## 🔧 Features
