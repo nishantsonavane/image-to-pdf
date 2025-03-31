@@ -16,30 +16,79 @@ const progressBar = document.getElementById('progressBar');
 
 // Allowed formats
 const allowedTypes = [
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/svg+xml",
-  "image/webp",
-  "image/avif",
-  "application/pdf"
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/svg+xml",
+    "image/webp",
+    "image/avif",
+    "application/pdf"
 ];
+
+
+// Create or reuse error display container
+
+let errorBox = document.getElementById('errorBox');
+
+if (!errorBox)
+{
+
+    errorBox = document.createElement('div');
+
+    errorBox.id = 'errorBox';
+
+    // errorBox.style.cssText = 'color: #b00020; background: #fff3f3; padding: 10px; border: 1px solid #f5c2c7; margin: 10px 0; border-radius: 5px; display: none;';
+
+    fileInput.parentElement.insertBefore(errorBox, fileInput);
+
+}
+
+function showError(message)
+{
+
+    errorBox.textContent = message;
+
+    errorBox.style.display = 'block';
+
+}
+
+
+function hideError()
+{
+
+    errorBox.style.display = 'none';
+
+    errorBox.textContent = '';
+
+}
 
 // Initially hide add more button
 addMoreButton.style.display = "none";
 progressBar.style.display = "none";
 
-fileInput.addEventListener('change', () => {
+fileInput.addEventListener('change', () =>
+{
     const validFiles = Array.from(fileInput.files).filter(file => allowedTypes.includes(file.type));
     const invalidFiles = Array.from(fileInput.files).filter(file => !allowedTypes.includes(file.type));
 
-    if (invalidFiles.length > 0) {
-        alert("Some files are not supported (e.g., audio/video or unknown formats). Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    if (invalidFiles.length > 0)
+    {
+        showError("Some files are not supported. Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    } else
+    {
+
+        hideError();
+
     }
 
-    allFiles = [...allFiles, ...validFiles];
-    updateFileNames();
-    simulateProgress();
+    if (validFiles.length > 0)
+    {
+
+        allFiles = [...allFiles, ...validFiles];
+        updateFileNames();
+        simulateProgress();
+
+    }
 });
 
 addMoreButton.addEventListener("click", () =>
@@ -58,20 +107,31 @@ dropZone.addEventListener('dragleave', () =>
     dropZone.classList.remove('dragging');
 });
 
-dropZone.addEventListener('drop', (e) => {
+dropZone.addEventListener('drop', (e) =>
+{
     e.preventDefault();
     dropZone.classList.remove('dragging');
     const droppedFiles = Array.from(e.dataTransfer.files);
     const validFiles = droppedFiles.filter(file => allowedTypes.includes(file.type));
     const invalidFiles = droppedFiles.filter(file => !allowedTypes.includes(file.type));
 
-    if (invalidFiles.length > 0) {
-        alert("Some files are not supported (e.g., audio/video or unknown formats). Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    if (invalidFiles.length > 0)
+    {
+        showError("Some files are not supported. Please upload only JPG, JPEG, PNG, SVG, WebP, AVIF, or PDF.");
+    } else
+    {
+
+        hideError();
+
     }
 
-    allFiles = [...allFiles, ...validFiles];
-    updateFileNames();
-    simulateProgress();
+    if (validFiles.length > 0)
+    {
+        allFiles = [...allFiles, ...validFiles];
+        updateFileNames();
+        simulateProgress();
+
+    }
 });
 
 function updateFileNames()
